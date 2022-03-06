@@ -9,9 +9,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TestNGDemo2 {
-	
-	int num1 = 14;
-	int num2 = 70;
 	static public int num3 = 14;
 
 	@BeforeClass
@@ -28,7 +25,7 @@ public class TestNGDemo2 {
 		list.add("Ottawa");
 		list.add("Niagara");
 		list.add("Vaughan");
-		for (int i=0;i<list.size();i++) {
+		for (String i : list) {
 			System.out.println(list);
 			break;
 		}
@@ -36,7 +33,7 @@ public class TestNGDemo2 {
 
 	@Test(priority = 1)
 	public void addTwoNum() {
-		System.out.println("sum of num1 and num2: " + (num1 + num2));
+		System.out.println("sum of num1 and num2: " + Math.addExact(14,14));
 		Assert.fail();
 	}
 
@@ -46,7 +43,7 @@ public class TestNGDemo2 {
 	}
 	@Test(priority = 3, dependsOnMethods = "addTwoNum")
 	public void subTwoNum() {
-		System.out.println("sum of num1 and num2: " + (num1 - num2));
+		System.out.println("sum of num1 and num2: " + Math.subtractExact(59, 17));
 	}
 
 	@AfterMethod
